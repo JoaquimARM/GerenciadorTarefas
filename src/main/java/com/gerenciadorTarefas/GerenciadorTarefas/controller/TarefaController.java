@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.gerenciadorTarefas.GerenciadorTarefas.model.Tarefa;
@@ -31,7 +32,7 @@ public class TarefaController {
     }
 
     @PostMapping("/tarefas")
-    public String criarTarefa(Tarefa tarefa) {
+    public String criarTarefa(@ModelAttribute Tarefa tarefa) {
         tarefaRepository.save(tarefa);
         return "redirect:/tarefas";
     }

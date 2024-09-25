@@ -11,6 +11,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -23,7 +24,7 @@ public class Tarefa {
     private String titulo;
     private String descricao;
     private Date dataDescricao;
-    private Date prazo;
+    private LocalDate prazo;
 
     @Enumerated(EnumType.STRING)
     private Status status;
@@ -70,11 +71,11 @@ public class Tarefa {
 		this.dataDescricao = dataDescricao;
 	}
 
-	public Date getPrazo() {
+	public LocalDate getPrazo() {
 		return prazo;
 	}
 
-	public void setPrazo(Date prazo) {
+	public void setPrazo(LocalDate prazo) {
 		this.prazo = prazo;
 	}
 

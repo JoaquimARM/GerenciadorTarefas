@@ -2,16 +2,74 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Lista de Tarefas</title>
+    <style>
+		body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        a {
+            display: inline-block;
+            margin-bottom: 20px;
+            padding: 10px 15px;
+            background-color: #5cb85c;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        a:hover {
+            background-color: #4cae4c;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #5cb85c;
+            color: white;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+    </style>
 </head>
 <body>
     <h1>Tarefas</h1>
     <a href="/tarefas/nova">Nova Tarefa</a>
-    <ul>
-        <li th:each="tarefa : ${tarefas}">
-            <span th:text="${tarefa.titulo}">Título</span> - 
-            <span th:text="${tarefa.descricao}">Descrição</span> - 
-            <span th:text="${tarefa.status}">Status</span>
-        </li>
-    </ul>
+   
+     <table>
+        <thead>
+            <tr>
+                <th>Título</th>
+                <th>Descrição</th>
+                <th>Prazo</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="tarefa : ${tarefas}">
+                <td th:text="${tarefa.titulo}">Título</td>
+                <td th:text="${tarefa.descricao}">Descrição</td>
+                <td th:text="${tarefa.prazo}">Prazo</td>
+                <td th:text="${tarefa.status}">Status</td>
+            </tr>
+        </tbody>
+    </table>
 </body>
 </html>
